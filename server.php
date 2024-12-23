@@ -7,7 +7,6 @@
  * @author   Taylor Otwell <taylor@laravel.com>
  */
 
-$port = env('PORT', 8000);
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? ''
 );
