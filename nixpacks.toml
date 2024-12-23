@@ -5,4 +5,4 @@ nixPkgs = ["php81", "composer"]
 commands = ["composer install --optimize-autoloader --no-dev"]
 
 [phases.start]
-commands = ["php artisan serve --host=0.0.0.0 --port=8000"]
+commands = ["php artisan serve"]
