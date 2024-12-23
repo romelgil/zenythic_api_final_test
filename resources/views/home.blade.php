@@ -85,7 +85,7 @@
                   table +=
                     '<thead><tr><th>Game</th><th>Status</th></tr></thead>';
                   table += '<tbody>';
-                  data.forEach(function(item) {
+                  (data.games ?? []).forEach(function(item) {
                     table += '<tr>';
                     table += '<td>' + item.game_name +
                       '</td>';
