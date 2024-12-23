@@ -65,6 +65,6 @@ Route::get('/sports/rugby-league', function () {
 
 // Casino routes
 
-Route::group(['middleware' => 'api.csrf'], function () {
-    Route::post('/casino', [CasinoController::class, 'casino_request']);
-});
+Route::post('/casino/providers', [CasinoController::class, 'get_providers']);
+
+Route::post('/casino/games/{provider_code}', [CasinoController::class, 'get_games']);

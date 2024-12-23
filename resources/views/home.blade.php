@@ -34,9 +34,14 @@
             <a class="dropdown-item" href="{{ url('/api/sports/rugby-league') }}">Rugby League</a>
           </div>
         </li>
-        <li class="nav-item">
-          <!-- TODO: -->
-          <a class="nav-link" href="#" id="apiLink">Casino API Data</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="providerDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Providers
+          </a>
+          <div class="dropdown-menu" aria-labelledby="providerDropdown" id="providerDropdownMenu">
+            <!-- Providers will be loaded here -->
+          </div>
         </li>
       </ul>
     </div>
@@ -51,6 +56,26 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     $(document).ready(function () {
+      $.ajax({
+        url: '{{ url('/api/casino/providers') }}',
+        method: 'POST',
+        contentType: 'application/json',
+        success: function (data) {
+          if (data.status === 1) {
+            var providers = data.providers;
+            var dropdownMenu = $('#providerDropdownMenu');
+            providers.forEach(function (provider) {
+              var dropdownItem = $('<a class="dropdown-item" href="#">' + provider.code + '</a>');
+              dropdownMenu.append(dropdownItem);
+            });
+          } else {
+            $('#content').html('<pre>Error: ' + data.msg + '</pre>');
+          }
+        },
+        error: function (xhr, status, error) {
+          $('#content').html('<pre>' + xhr.responseText + '</pre>');
+        }
+      });
       $('a.dropdown-item').on('click', function (e) {
         e.preventDefault();
         var url = $(this).attr('href');
