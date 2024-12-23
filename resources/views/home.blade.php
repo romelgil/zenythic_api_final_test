@@ -20,19 +20,19 @@
             Sports
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url('/api/sports') }}">All Sports</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/soccer') }}">Soccer</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/basketball') }}">Basketball</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/american-football') }}">American Football</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/golf') }}">Golf</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/ice-hockey') }}">Ice Hockey</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/aussie-football') }}">Aussie Football</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/baseball') }}">Baseball</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/boxing') }}">Boxing</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/cricket') }}">Cricket</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/mixed-martial-arts') }}">Mixed Martial
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports') }}">All Sports</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/soccer') }}">Soccer</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/basketball') }}">Basketball</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/american-football') }}">American Football</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/golf') }}">Golf</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/ice-hockey') }}">Ice Hockey</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/aussie-football') }}">Aussie Football</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/baseball') }}">Baseball</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/boxing') }}">Boxing</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/cricket') }}">Cricket</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/mixed-martial-arts') }}">Mixed Martial
               Arts</a>
-            <a class="dropdown-item" href="{{ url('/api/sports/rugby-league') }}">Rugby League</a>
+            <a class="dropdown-item sport-item" href="{{ url('/api/sports/rugby-league') }}">Rugby League</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -66,13 +66,13 @@
             var providers = data.providers;
             var dropdownMenu = $('#providerDropdownMenu');
             providers.forEach(function(provider) {
-              var dropdownItem = $('<a class="dropdown-item" href="#" id="' +
+              var dropdownItem = $('<a class="dropdown-item game-item" href="#" id="' +
                 provider.code + '">' + provider.code + '</a>');
               dropdownMenu.append(dropdownItem);
             });
 
             // Añadir evento de clic a los nuevos elementos del menú desplegable
-            $('a.dropdown-item').on('click', function(e) {
+            $('a.game-item').on('click', function(e) {
               e.preventDefault();
               var providerCode = $(this).attr('id');
               $.ajax({
@@ -111,7 +111,7 @@
           $('#content').html('<pre>' + xhr.responseText + '</pre>');
         }
       });
-      $('a.dropdown-item').on('click', function(e) {
+      $('a.sport-item').on('click', function(e) {
         e.preventDefault();
         var url = $(this).attr('href');
         $.get(url, function(data) {

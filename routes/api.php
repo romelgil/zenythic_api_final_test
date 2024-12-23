@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\SportsController;
 use App\Http\Controllers\CasinoController;
 
@@ -24,43 +22,43 @@ Route::get('/sports/soccer', function () {
     return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'soccer']);
 });
 Route::get('/sports/basketball', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'basketball']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'basketball']);
 });
 
 Route::get('/sports/american-football', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'american football']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'american football']);
 });
 
 Route::get('/sports/golf', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'golf']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'golf']);
 });
 
 Route::get('/sports/ice-hockey', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'ice hockey']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'ice hockey']);
 });
 
 Route::get('/sports/aussie-football', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'aussie rules']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'aussie rules']);
 });
 
 Route::get('/sports/baseball', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'baseball']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'baseball']);
 });
 
 Route::get('/sports/boxing', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'boxing']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'boxing']);
 });
 
 Route::get('/sports/cricket', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'cricket']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'cricket']);
 });
 
 Route::get('/sports/mixed-martial-arts', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'mixed martial arts']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'mixed martial arts']);
 });
 
 Route::get('/sports/rugby-league', function () {
-    return app()->call([SportsController::class, 'get_sport'], ['sport_type' => 'rugby league']);
+    return app()->call('App\Http\Controllers\SportsController@get_sport', ['sport_type' => 'rugby league']);
 });
 
 // Casino routes
