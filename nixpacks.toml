@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["php81", "composer"]
-
-[phases.build]
-commands = ["composer install --optimize-autoloader --no-dev"]
-
-[phases.start]
-commands = ["php artisan serve"]

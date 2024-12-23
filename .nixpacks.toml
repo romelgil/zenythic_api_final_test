@@ -1,0 +1,10 @@
+[phases]
+install = """
+nix-env -iA nixpkgs.composer nixpkgs.php81
+"""
+build = """
+composer install --no-dev --optimize-autoloader
+"""
+start = """
+php artisan serve --host=0.0.0.0 --port=8000
+"""
